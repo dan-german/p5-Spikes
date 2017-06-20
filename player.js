@@ -125,11 +125,20 @@ function Player() {
     }
   }
 
+  function restartPosition(playerFacingRight) {
+    if (playerFacingRight) {
+      this.pos.set(width / 2 - PLAYER_SIZE / 5, height / 2 - PLAYER_SIZE / 1.4)
+    } else {
+      this.pos.set(width / 2 - PLAYER_SIZE / 1.3, height / 2 - PLAYER_SIZE / 2)
+    }
+  }
+
   this.restart = function() {
     if (once) {
       spikeWall.respawn()
       gameBegun = false
-      this.pos.set(width / 2, height / 2)
+      restartPosition.call(this, playerFacingRight)
+      UI.restartTextColor()
       candies = 0
       candy.gotEaten()
       once = false

@@ -10,7 +10,7 @@ function GameObject() {
   this.pos = createVector()
   this.vel = createVector()
   this.acc = createVector()
-  this.sinPos = random()
+  this.sinPos = -1
 
   this.updatePhysicsWithLimit = function(limit) {
     this.vel.add(this.acc)
@@ -28,7 +28,7 @@ function GameObject() {
 
   this.hover = function() {
     this.sinPos += 0.08
-    this.pos.y = map(sin(this.sinPos), -1, 1, this.pos.y - 2, this.pos.y + 2)
+    this.pos.y = map(sin(this.sinPos), -1, 1, this.pos.y - 1.5, this.pos.y + 1.5)
   }
 }
 

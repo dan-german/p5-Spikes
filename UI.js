@@ -1,5 +1,6 @@
 function UI() {
   var candyScorePos = createVector(width / 7, height - height / 14, 57, 23)
+  var textColor = 255
 
   this.updateCandyView = function(candies) {
     textSize(20)
@@ -20,11 +21,30 @@ function UI() {
   }
 
   this.updateScoreView = function(score) {
-    textAlign(CENTER)
-    textSize(60)
-    fill(180)
+
     noStroke()
-    if (score > 0)
-      text(score, width / 2, height / 2)
+    fill(255)
+    ellipse(width / 2, height / 2, 175, 175)
+
+    if (!gameBegun)
+      return
+
+    if (textColor >= 210) {
+      textColor -= 1
+    }
+
+    textAlign(CENTER)
+    textSize(100)
+    fill(textColor)
+    noStroke()
+    if (score < 10) {
+      text("0" + score, width / 2, height / 2 + 32)
+    } else {
+      text(score, width / 2, height / 2 + 32)
+    }
+  }
+
+  this.restartTextColor = function() {
+    textColor = 255
   }
 }
