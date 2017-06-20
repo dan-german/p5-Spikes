@@ -4,6 +4,9 @@ function GameObject() {
   this.front = createVector()
   this.middlePoint = createVector()
 
+  this.topSideMid = createVector()
+  this.bottomSideMid = createVector()
+
   this.pos = createVector()
   this.vel = createVector()
   this.acc = createVector()

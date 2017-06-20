@@ -62,6 +62,8 @@ function Player() {
       this.middlePoint.set(this.pos.x + PLAYER_SIZE / 1.35, this.pos.y + PLAYER_SIZE / 2)
       playerFacingRight = false
     }
+    this.topSideMid.set((this.firstPoint.x + this.front.x) / 2, (this.firstPoint.y + this.front.y) / 2)
+    this.bottomSideMid.set((this.secondPoint.x + this.front.x) / 2, (this.secondPoint.y + this.front.y) / 2)
   }
 
   function handleWallCollision() {
